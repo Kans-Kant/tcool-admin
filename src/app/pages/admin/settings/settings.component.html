@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <div class="container-fluid py-4">
+        <div class="row pt-5" id="titlebar">
+            <nav id="breadcrumbs">
+                <ul>
+                    <li><a routerLink="/dashboard" routerLinkActive="active">Accueil</a></li>
+                    <li >Paramètres</li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Change Password -->
+        <div class="card pmd-card single-col-form">
+            <div class="card-header">
+                <h3 class="card-title" >Changer de mot de passe</h3>
+                <p class="card-subtitle" >C'est une bonne idée d'utiliser un mot de passe fort que vous n'utilisez pas ailleurs</p>
+            </div>
+            <div class="card-body">
+                <form id="changepasswordform" [formGroup]="changePasswordForm" (ngSubmit)="onUpdate()" >
+                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                        <label for="currentpassword" class="col-form-label" >Mot de passe courant</label>
+                        <input type="password" formControlName="currentPassword" class="form-control" id="currentpassword" name="currentPassword"><span class="pmd-textfield-focused"></span>
+                        <div *ngIf="changePasswordForm.controls['currentPassword'].invalid && changePasswordForm.controls['currentPassword'].touched">
+                            <small class="form-text text-danger " >Entrez le mot de passe courant</small>
+                        </div>
+                    </div>
+                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                        <label for="password" class="col-form-label" >Nouveau mot de passe</label>
+                        <input type="password" formControlName="newPassword" class="form-control" id="password" name="newPassword"><span class="pmd-textfield-focused"></span>
+                        <div *ngIf="changePasswordForm.controls['newPassword'].invalid && changePasswordForm.controls['newPassword'].touched">
+                            <small class="form-text text-danger " >Entrez le nouveau mot de passe</small>
+                        </div>
+                    </div>
+                    <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                        <label for="repeatpassword" class="col-form-label" >Confirmation mot de passe</label>
+                        <input type="password" formControlName="confirmPassword" class="form-control" id="repeatpassword" name="confirmPassword"><span class="pmd-textfield-focused"></span>
+                        <div *ngIf="changePasswordForm.controls['confirmPassword'].invalid && changePasswordForm.controls['confirmPassword'].dirty || changePasswordForm.controls['confirmPassword'].touched">
+                            <div *ngIf="changePasswordForm.controls['confirmPassword'].errors?.required">
+                                <small class="form-text text-danger" >Entrez le mot de passe de confirmation</small>
+                            </div>
+                            <div  *ngIf="changePasswordForm.controls['newPassword'].touched && changePasswordForm.controls['confirmPassword'].touched && changePasswordForm.hasError('missmatch')" class="text-danger" >
+                                <small class="form-text text-danger" >le mot de passe de confirmation sont différents</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button [disabled]="!changePasswordForm.valid" type="submit" class="btn btn-primary pmd-ripple-effect pmd-btn-raised mx-1" name="signup" value="Update Password" >Modifier</button> <button class="btn btn-outline-secondary mx-1 pmd-ripple-effect" type="reset" >Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

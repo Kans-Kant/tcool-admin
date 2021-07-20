@@ -1,0 +1,69 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-12 mx-auto">
+                <h3 style="text-align: center;">Message - Rappel</h3>
+                <div class="dropdown">
+                    <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="background-color: rgb(255, 187, 0);">
+                        <div class="container-fluid m-0 p-0">
+                            <div class="row m-0 p-0">
+                                <div class="material-icons col-sm-1 col-1">person_add_alt</div>
+                                <div class="title col-sm-9 col-9">
+                                    <span>Utilisateurs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <table class="px-2 mx-2">
+                            <thead>
+                                <th class="mx-1"></th>
+                                <th class="mx-1">Nom</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of users; let i = index;">
+                                    <td> <input type="checkbox" id="user{{user.idCompte}}"
+                                            [(ngModel)]="users[i].checked" name="user{{user.idCompte}}"></td>
+                                    <td>{{user?.lastName + " "+ user?.firstName}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="col-sm-2 col-2 my-2">
+                            <button type="button" (click)="sendCheckedUsers()" class="btn btn-default"
+                                style="background-color: rgb(224, 140, 14);color:white">Ajouter</button>
+                        </div>
+                    </div>
+                </div>
+                <form (ngSubmit)="onSend()" [formGroup]="messageForm">
+                    <div class="form-group">
+                        <label for="users" class="my-1">Utilisateurs </label>
+                        <input type="text" name="users" formControlName="users" value="{{users_text}}" id="users"
+                            placeholder="Utilisateurs" class="form-control" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="my-1">Message</label>
+                        <textarea type="text" name="message" id="message" formControlName="message" rows="5"
+                            placeholder="Message" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" id="rappel" class="px-2" (change)="onReminder($event.target.checked)">
+                        <label for="rappel" class="px-2">Rappeler</label>
+                    </div>
+                    <div class="form-group" *ngIf="isReminder">
+                        <label>Jour & Heure</label>
+                        <div>
+                            <input type="date" name="date" id="date" class="mx-1 form-control1" formControlName="date" />
+                            <input type="time" name="time" id="time" class="mx-1 form-control1" formControlName="time" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 mx-auto">
+                            <button [disabled]="!messageForm.valid" type="submit" class="btn btn-info my-1" style="color: white;">Valider</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

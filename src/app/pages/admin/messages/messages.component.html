@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="container message">
+        <h5 class="text-center my-3">{{messages?.length}} Message(s)</h5>
+        <a *ngFor="let message of messages" class="row card my-2" [routerLink]="['../message',1]" routerLinkActive="active">
+            <div class="col-sm-1 m-0 p-0">
+                <div style="width: 64px;height: 64px;color:rgb(17, 145, 204);text-align: center;">
+                    <span class="material-icons my-4">quickreply</span>
+                </div>
+                <!--img src="assets/user.jpg" alt="user" -->
+            </div>
+            <div class="col-sm-10">
+                <div class="row my-1 m-0 p-0">
+                    <div class="col-sm-8 m-0 p-0">
+                        <span class="author">Envoyé à 
+                            <span *ngFor="let user of message?.comptes; let i=index">
+                                <span>{{user?.lastName}}</span>
+                                <span *ngIf="i<message?.comptes?.length-1">, </span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-sm-3 date">
+                        <span>{{message?.createdDate| date : 'EEEE, MMMM d, y, h:mm:ss'}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="message">{{message?.message}}</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

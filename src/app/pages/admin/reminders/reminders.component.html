@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="container reminder">
+        <h5 class="text-center my-3">{{rappels?.length}} Rappel(s)</h5>
+        <a [routerLink]="['../rappel',rappel?.idRappel]" routerLinkActive class="row card my-2" *ngFor="let rappel of rappels">
+            <div class="col-sm-1 m-0 p-0" style="align-items: center;background-color:#5bc0de;height:64px;text-align: center;">
+                <span class="material-icons p-3" style="color:white;height:100%;">today</span>
+            </div>
+            <div class="col-sm-10">
+                <div class="row my-1 mx-0">
+                    <div class="col-sm-9 mx-0">
+                        <span class="author">Envoyé à 
+                            <span *ngFor="let user of rappel?.comptes; let i=index">
+                                <span>{{user?.lastName}}</span>
+                                <span *ngIf="i<rappel?.comptes?.length-1">, </span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="col-sm-3 date">
+                        <span>{{rappel?.createdDate| date : 'EEEE, MMMM d, y, h:mm:ss'}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <span class="message">{{rappel?.rappel}}</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

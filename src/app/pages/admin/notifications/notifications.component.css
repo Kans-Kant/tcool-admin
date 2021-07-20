@@ -1,0 +1,23 @@
+.card{
+    height: 64px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.card .author{
+    font-weight: bold;
+}
+.card:hover{
+    border-radius: 15px;
+    box-shadow: 0.46875rem 0 1.1875rem rgb(31 10 6 / 3%), 0.9375rem 0 1.40625rem rgb(31 10 6 / 3%), 0.25rem 0 0.53125rem rgb(31 10 6 / 5%), 0.125rem 0 0.1875rem rgb(31 10 6 / 3%);
+}
+.notification a {
+    text-decoration: none;
+    color: black;
+}
+.message{
+    font-size: 13px;
+}
+.date{
+    font-size: 13px;
+}

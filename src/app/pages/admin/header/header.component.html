@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg flex-column flex-md-row justify-content-around" id="myNavbar">
+    <a routerLink="/home" class="navbar-brand ml-2 text-center" style="align-items: center;color:black">
+      <div class="row mx-auto">
+        <div class="col-1 col-sm-1 mx-4">
+          <img src="assets/logo_bouskoura.png" alt="" style="width: 48px;height: 48px;">
+        </div>
+        <div class="col-4 mobile">
+          <span style="font-size: 18px;">
+            Tcool
+          </span>
+        </div>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+      aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+        <span class="material-icons">menu </span>
+      </span>
+    </button>
+    <div class="collapse navbar-collapse mr-0" id="navbarToggler">
+      <ul class="navbar-nav ml-md-auto mx-auto">
+        <li class="nav-item mx-4" style="color: white;" >
+          <a routerLink="./notifications" routerLinkActive="active" class="item">
+            <div class="group">
+              <i class="material-icons" style="color: rgba(0, 0, 0, 0.404);font-size: 18px;align-items: center;vertical-align: middle;padding:7px; padding-top: 10px;">
+                notifications
+            </i>
+                <div class="detail">
+                    <div
+                        style="width:18px;height:18px;color: white;padding: 5;background-color: orange;border-radius: 50%;text-align: center;margin-left:-15px;margin-top:-5px;font-size: 13px;">
+                        <span>{{notifications?.length}}</span>
+                    </div>
+                </div>
+            </div>
+        </a>          
+        </li>
+        <li class="nav-item dropdown" style="color: white;">
+          <a class="nav-link dropdown-toggle" style="cursor:pointer" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img [src]="user?.avatar!==null ? url+user?.avatar : 'assets/user.jpg'" style="width:24px;vertical-align:middle;text-align: center;"
+             class="rounded-circle">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" style="cursor:pointer" (click)="logout()">Déconnexion</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+</nav>

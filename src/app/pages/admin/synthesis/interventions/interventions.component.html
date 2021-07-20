@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="container">
+        <table class="table">
+        <thead>
+            <tr>
+                <th class="col-1"><span>#</span> </th>
+                <th class="col-1"><span>Theme</span></th>
+                <th class="col-1">Titre</th>
+                <th class="col-1"><span class="my-0 py-0" style="color: rgb(9, 182, 9);font-size:30px;font-weight: bold;">.</span>Statut</th>
+                <th class="col-1">Lieu</th>
+                <th class="col-1">Date</th>
+                <th class="col-1">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let intervention of interventions">
+                <td scope="row">{{intervention?.idIntervention}}</td>
+                <td >
+                    {{getTheme(intervention?.theme)}}
+                </td>
+                <td>{{intervention?.title}}</td>
+                <td>{{intervention?.status}}</td>
+                <td>{{intervention?.location}}</td>
+                <td>{{intervention?.createdDate| date:"EEEE, MMMM d, y"}}</td>
+                <td><a class="btn btn-info" [routerLink]="['../../intervention',intervention?.idIntervention]" routerLinkActive="active">Voir</a></td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>

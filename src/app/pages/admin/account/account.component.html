@@ -1,0 +1,97 @@
+<div class="main-content">
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+      <div class="row">
+        <div class="col-xl-8 order-xl-1 mx-auto">
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">Mon compte</h3>
+                </div>
+                <div class="col-4 text-right">
+                  <a routerLink="../parametres" routerLinkActive="active" class="btn btn-sm btn-primary">Settings</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form [formGroup]="accountForm" (ngSubmit)="onUpdate()">
+                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-first-name">First name</label>
+                        <input type="text" id="input-first-name" class="form-control form-control-alternative" formControlName="firstName" name="firstName" placeholder="Lucky">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-last-name">Last name</label>
+                        <input type="text" id="input-last-name" class="form-control form-control-alternative"  formControlName="lastName" name="lastName" placeholder="Jesse">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Adresse email</label>
+                        <input type="email" id="input-email" class="form-control form-control-alternative"  formControlName="email" placeholder="jesse@example.com">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-username">Role</label>
+                        <input type="text" id="input-username" class="form-control form-control-alternative"  formControlName="role" name="role" placeholder="Role">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                <!-- Address -->
+                <h6 class="heading-small text-muted mb-4">Information contact</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-address">Immeuble</label>
+                        <input id="input-address" class="form-control form-control-alternative"  formControlName="immeuble" name="immeuble" placeholder="Immeuble" type="text">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-city">Appartement</label>
+                        <input type="text" id="input-city" class="form-control form-control-alternative"  formControlName="appartement" name="appartement" placeholder="Appartement">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-country">Téléphone</label>
+                        <input type="text" id="input-country" class="form-control form-control-alternative"  formControlName="phone" name="phone" placeholder="Telephone">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">Pays</label>
+                        <input type="text" id="input-postal-code" class="form-control form-control-alternative"  placeholder="Pays" value="Maroc">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-sm-3 mx-auto">
+                      <button type="submit" [disabled]="!accountForm.valid" class="btn btn-info mx-auto">Valider</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

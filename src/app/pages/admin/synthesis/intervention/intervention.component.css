@@ -1,0 +1,47 @@
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, .05);
+    border-radius: .375rem;
+    background-color: #fff;
+    background-clip: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .card>hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .card-body {
+    padding: 1.5rem;
+    flex: 1 1 auto;
+  }
+  
+  .card-header {
+    margin-bottom: 0;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    background-color: #fff;
+  }
+  
+.form-group{
+    padding-top:5px;
+    padding-bottom: 5px;
+}
+label{
+    font-weight: bold;
+}
+.bg-secondary {
+    background-color: #f7fafc !important;
+  }
+  
+  a.bg-secondary:hover,
+  a.bg-secondary:focus,
+  button.bg-secondary:hover,
+  button.bg-secondary:focus {
+    background-color: #d2e3ee !important;
+  }

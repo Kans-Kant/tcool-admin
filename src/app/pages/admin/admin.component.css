@@ -1,0 +1,15 @@
+.header{
+    background-color: white;
+    width: 100%;
+    color:white;
+    min-height: 60px;
+    box-shadow: 0.46875rem 0 1.1875rem rgb(31 10 6 / 3%), 0.9375rem 0 1.40625rem rgb(31 10 6 / 3%), 0.25rem 0 0.53125rem rgb(31 10 6 / 5%), 0.125rem 0 0.1875rem rgb(31 10 6 / 3%);
+   }
+.sidenav{
+    background-color: #3c4b64;
+    color : white
+}
+.content{
+    min-height: 600px;
+    position: relative;
+}

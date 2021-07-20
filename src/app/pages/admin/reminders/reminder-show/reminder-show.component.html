@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 mx-auto">
+                <div class="card bg-secondary shadow">
+                    <div class="card-header text-center">
+                        <h6>Rappel programmé pour : {{rappel?.date| date : 'EEEE, MMMM d, y'}} à {{rappel?.heure}}h{{rappel?.minutes}} </h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="title my-1">
+                            <span style="font-weight: bold;">Rappel envoyé à : </span>
+                            <span *ngFor="let user of rappel?.comptes; let i=index">
+                                <span>{{user?.lastName}}</span>
+                                <span *ngIf="i<rappel?.comptes?.length-1">, </span>
+                            </span>
+                        </div>
+                        <div class="content my-1">
+                            <span style="font-weight: bold;">Date : </span>
+                            <span>{{rappel?.createdDate| date : 'EEEE, MMMM d, y, h:mm:ss'}}</span>
+                        </div>
+                        <hr class="my-2">
+                        <div class="content my-1">
+                            {{rappel?.rappel}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

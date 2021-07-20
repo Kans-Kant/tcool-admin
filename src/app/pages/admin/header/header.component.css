@@ -1,0 +1,18 @@
+.item .group {
+    display:flex;
+    align-items: center;
+    font-size: 0.9em;
+  }
+  
+  .item .group .sub{
+    font-size: 0.8em;
+  }
+  .item{
+      text-decoration: none;
+      color:black;
+  }
+  @media(max-width:700px){
+    .mobile{
+      display: none;
+    }
+  }
