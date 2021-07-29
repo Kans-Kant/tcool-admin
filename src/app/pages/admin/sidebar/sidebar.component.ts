@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user.model';
+import { Compte } from 'src/app/models/compte.model';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { UserService } from 'src/app/services/user.service';
 import { WebSocketService } from 'src/app/services/websocket.service';
@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 })
 export class SidebarComponent implements OnInit {
 
-  user: User;
+  user: Compte;
 
   constructor(
     private tokenStorage: TokenStorageService,

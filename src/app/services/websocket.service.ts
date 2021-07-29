@@ -38,11 +38,13 @@ export class WebSocketService {
                 this.client.subscribe('/user/' + this.tokenStorage.getUser().username + '/queue/notifications', (resp) => {
                     const text: Notification = JSON.parse(resp.body);
                     this.toastr.showInfo(text.message, text.sendFrom);
+                    this.notifService.notificationMessage.emit(text);
                 });
 
                 this.client.subscribe('/user/' + this.tokenStorage.getUser().username + '/queue/unread', (resp) => {
                     const nbr: number = JSON.parse(resp.body);
                     this.unreadNotif.push(nbr);
+                    console.log(nbr);
                 });
 
                 console.info('connected!');

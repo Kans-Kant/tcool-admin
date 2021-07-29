@@ -1,4 +1,4 @@
-import { User } from "./user.model";
+import { Compte} from "./compte.model";
 
 export class AbstractAuditingEntity {
     createdBy: string;//User;

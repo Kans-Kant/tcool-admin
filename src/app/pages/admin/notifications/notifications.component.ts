@@ -9,18 +9,19 @@ import { WebSocketService } from 'src/app/services/websocket.service';
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
+
   notifications: Notification[] = [];
 
   notifs: number[];
   constructor(
     private userService: UserService,
     private tokenStorage: TokenStorageService,
-    //private wsSocket : WebSocketService
+    private wsSocket : WebSocketService
   ) { }
 
   ngOnInit(): void {
-    //this.notifs = this.wsSocket.unreadNotif;
-    //console.log(this.notifs);
+    this.notifs = this.wsSocket.unreadNotif;
+    console.log(this.notifs);
     this.getAllNotifications();
   }
 

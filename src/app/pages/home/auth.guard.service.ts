@@ -26,7 +26,7 @@ export class AuthGuard implements CanActivate {
     constructor(private tokenStorageService: TokenStorageService, private router: Router) { }
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
       let role = this.tokenStorageService.getRole();
-      if (role == "ASSISTANTE") {
+      if (role == "ADMIN") {
         this.router.navigate(["/admin/account"]);
         return false;
       } else {

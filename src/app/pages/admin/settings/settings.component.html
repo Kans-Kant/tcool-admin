@@ -18,21 +18,21 @@
                 <form id="changepasswordform" [formGroup]="changePasswordForm" (ngSubmit)="onUpdate()" >
                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
                         <label for="currentpassword" class="col-form-label" >Mot de passe courant</label>
-                        <input type="password" formControlName="currentPassword" class="form-control" id="currentpassword" name="currentPassword"><span class="pmd-textfield-focused"></span>
+                        <input type="password" formControlName="currentPassword" autocomplete="on" class="form-control" id="currentpassword" name="currentPassword"><span class="pmd-textfield-focused"></span>
                         <div *ngIf="changePasswordForm.controls['currentPassword'].invalid && changePasswordForm.controls['currentPassword'].touched">
                             <small class="form-text text-danger " >Entrez le mot de passe courant</small>
                         </div>
                     </div>
                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
                         <label for="password" class="col-form-label" >Nouveau mot de passe</label>
-                        <input type="password" formControlName="newPassword" class="form-control" id="password" name="newPassword"><span class="pmd-textfield-focused"></span>
+                        <input type="password" formControlName="newPassword" class="form-control" id="password" name="newPassword" autocomplete="on"><span class="pmd-textfield-focused"></span>
                         <div *ngIf="changePasswordForm.controls['newPassword'].invalid && changePasswordForm.controls['newPassword'].touched">
                             <small class="form-text text-danger " >Entrez le nouveau mot de passe</small>
                         </div>
                     </div>
                     <div class="form-group pmd-textfield pmd-textfield-floating-label">
                         <label for="repeatpassword" class="col-form-label" >Confirmation mot de passe</label>
-                        <input type="password" formControlName="confirmPassword" class="form-control" id="repeatpassword" name="confirmPassword"><span class="pmd-textfield-focused"></span>
+                        <input type="password" formControlName="confirmPassword" class="form-control" id="repeatpassword" name="confirmPassword" autocomplete="on"><span class="pmd-textfield-focused"></span>
                         <div *ngIf="changePasswordForm.controls['confirmPassword'].invalid && changePasswordForm.controls['confirmPassword'].dirty || changePasswordForm.controls['confirmPassword'].touched">
                             <div *ngIf="changePasswordForm.controls['confirmPassword'].errors?.required">
                                 <small class="form-text text-danger" >Entrez le mot de passe de confirmation</small>

@@ -1,10 +1,10 @@
 import { AbstractAuditingEntity } from "./AbstractAuditingEntity.model";
-import { User } from "./user.model";
+import { Compte } from "./compte.model";
 
 export class Message extends AbstractAuditingEntity {
     idMessage: number;
     message: string;
-    comptes : User[];
+    comptes : Compte[] = [];
 
     constructor() {
       super();

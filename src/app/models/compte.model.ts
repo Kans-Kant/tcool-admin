@@ -1,6 +1,6 @@
 import { Role } from "./role.model";
 
-export class User {
+export class Compte {
     idCompte: number;
     avatar:string;
     createdBy: string;
@@ -12,7 +12,7 @@ export class User {
     lastModifiedDate : string;
     lastModifiedBy : string;
     password: string;
-    myRole : Role[];
+    myRole : Role;
     phone:string;
     email : string;
   

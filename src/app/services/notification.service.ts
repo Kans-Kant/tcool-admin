@@ -1,6 +1,6 @@
 import { Notification } from './../models/notification.model';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: "root"
@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 export class NotificationService {
 
   private notificationEndpoint = '/api/notification';
+  notificationMessage = new EventEmitter();
 
   constructor(private http: HttpClient) {}
 

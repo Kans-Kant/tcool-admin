@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.credentials.password = this.loginForm.value.password;
     this.authService.login(this.credentials).subscribe(
       (data) => {
-        if (data.currentUser.authorities[0].authority==="ASSISTANTE") {
+        if (data.currentUser.authorities[0].authority==="ADMIN") {
           this.tokenStorage.saveToken(data.token);
           this.tokenStorage.saveUser(data.currentUser);
           this.wsSocket.connect();

@@ -1,5 +1,5 @@
 import { AbstractAuditingEntity } from "./AbstractAuditingEntity.model";
-import { User } from "./user.model";
+import { Compte } from "./compte.model";
 
 export class Notification extends AbstractAuditingEntity {
     idNotification: number;

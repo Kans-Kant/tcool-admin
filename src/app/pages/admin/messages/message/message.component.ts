@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Message } from 'src/app/models/message.model';
 import { Rappel } from 'src/app/models/rappel.model';
+import { Compte } from 'src/app/models/compte.model';
 import { DataStorageService } from 'src/app/services/data.service';
 import { MessageService } from 'src/app/services/message.service';
 import { RappelService } from 'src/app/services/rappel.service';
@@ -80,7 +81,7 @@ export class MessageComponent implements OnInit {
   }
 
   onSend() {
-    const users = [];
+    let users : Compte[] = [];
     if (this.usersChecked !== null && this.usersChecked !== undefined) {
       for (let user of this.usersChecked) {
         delete user.checked;
@@ -99,6 +100,7 @@ export class MessageComponent implements OnInit {
         date.setSeconds(0);
         this.rappel.date = date;
         this.rappel.comptes = users;
+        console.log(this.rappel);
         Swal.fire({
           text: 'Voulez-vous envoyé un rappel à ces utilisateurs?',
           icon: 'warning',
@@ -131,6 +133,7 @@ export class MessageComponent implements OnInit {
         this.message.createdBy = this.tokenStorage.getUser().username;
         this.message.createdDate = new Date();
         this.message.comptes = users;
+        console.log(this.message);
         Swal.fire({
           text: 'Voulez-vous envoyé un message à ces utilisateurs?',
           icon: 'warning',
@@ -141,6 +144,7 @@ export class MessageComponent implements OnInit {
           if (result.isConfirmed) {
             this.messageService.sendMessage(this.message).subscribe(
               (data) => {
+                console.log(data);
                 Swal.fire({
                   'icon': "success",
                   'timer': 4000,

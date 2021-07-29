@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/models/user.model';
+import { Compte } from 'src/app/models/compte.model';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { UserService } from 'src/app/services/user.service';
 import Swal from 'sweetalert2';
@@ -13,7 +13,7 @@ import Swal from 'sweetalert2';
 export class AccountComponent implements OnInit {
 
   accountForm : FormGroup;
-  user : User;
+  user : Compte;
 
   constructor(
     private userService : UserService,
@@ -37,7 +37,7 @@ export class AccountComponent implements OnInit {
     })
   }
   fillForm(){
-    this.user = new User();
+    this.user = new Compte();
     if(this.tokenStorage.getToken()!==undefined)
     this.userService.getMe(this.tokenStorage.getUser().id).subscribe(
       (data)=>{
@@ -49,7 +49,7 @@ export class AccountComponent implements OnInit {
           'immeuble' : this.user.appartement,
           'appartement' : this.user.appartement,
           'phone' : this.user.phone,
-          'role' : this.user.myRole[0].role
+          'role' : this.user.myRole.role
         })
       }
     )
