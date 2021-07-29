@@ -1,3 +1,7 @@
+import { Intervention } from "./intervention.model";
+import { Message } from "./message.model";
+import { Notification } from "./notification.model";
+import { Rappel } from "./rappel.model";
 import { Role } from "./role.model";
 
 export class Compte {
@@ -15,6 +19,15 @@ export class Compte {
     myRole : Role;
     phone:string;
     email : string;
+    myDiscussions : any[];
+    myEvents : any[];
+    myInterventions : Intervention[];
+    myOperations : any[];
+    myNotifications : Notification[];
+    coproprietes : any[];
+    rappels : Rappel[];
+    messages : Message[];
+    myArtisans: [];
   
     constructor() {}
   }

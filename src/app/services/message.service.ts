@@ -17,7 +17,7 @@ export class MessageService {
   constructor(private http: HttpClient) { }
 
   sendMessage(message): Observable<any> {
-    return this.http.put(environment.apiUrl + '/api/messages/send-message', message, httpOptions);
+    return this.http.post(environment.apiUrl + '/api/messages/send-message', message, httpOptions);
   }
   getMesageOf(id): Observable<any> {
     return this.http.get(environment.apiUrl + '/api/messages/created-messages/' + id, httpOptions);
