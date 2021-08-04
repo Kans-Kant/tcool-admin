@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>com.kf2y.tcool</groupId>
+        <artifactId>tcool-admin</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <packaging>jar</packaging>
+    <artifactId>tcool-admin</artifactId>
+    <name>Tcool BackOffice</name>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <resource>
+                <directory>dist</directory>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.8.0</version>
+                <configuration>
+                    <nodeVersion>v12.18.3</nodeVersion>
+                    <npmVersion>6.14.6</npmVersion>
+                    <npmDownloadRoot>${npm.repository}</npmDownloadRoot>
+                    <nodeDownloadRoot>${node.repository}</nodeDownloadRoot>
+                    <npmInheritsProxyConfigFromMaven>true</npmInheritsProxyConfigFromMaven>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                    </execution>
+                    <execution>
+                        <id>npm install</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                          <arguments>install --registry=https://registry.npmjs.org/</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                      <id>npm rebuild node-sass</id>
+                      <goals>
+                        <goal>npm</goal>
+                      </goals>
+                      <configuration>
+                        <arguments>rebuild node-sass</arguments>
+                      </configuration>
+                    </execution>
+                    <execution>
+                      <id>npm build</id>
+                      <goals>
+                        <goal>npm</goal>
+                      </goals>
+                      <phase>generate-resources</phase>
+                      <configuration>
+                        <arguments>run-script build-prod</arguments>
+                      </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-deploy-plugin</artifactId>
+              <configuration>
+                <skip>false</skip>
+              </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
