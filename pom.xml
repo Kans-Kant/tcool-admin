@@ -6,7 +6,7 @@
     
     <parent>
         <groupId>com.kf2y.tcool</groupId>
-        <artifactId>tcool</artifactId>
+        <artifactId>tcool-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <packaging>jar</packaging>
@@ -66,7 +66,7 @@
                       </goals>
                       <phase>generate-resources</phase>
                       <configuration>
-                        <arguments>run-script build-prod</arguments>
+                        <arguments>run build</arguments>
                       </configuration>
                     </execution>
                 </executions>

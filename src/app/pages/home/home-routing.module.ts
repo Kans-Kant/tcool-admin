@@ -6,24 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    children: [
-      {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-      },
-      {
-        path: 'home',
-        component: LoginComponent
-      },
-      {
-        path: 'register',
-        component: RegisterComponent
-      }
-    ]
-  }
+  
 ];
 
 @NgModule({
